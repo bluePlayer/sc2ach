@@ -135,7 +135,7 @@ var sc2achApp = Ext.application({
 									form.submit({
 										waitMsg: 'Loading...',
 										method:'GET',
-										url:'http://'+hostName+'/php/achievements.php',
+										url:'http://'+hostName+'/php-files/achievements.php',
 										params:{
 											region:'us.battle.net',
 											locale:'en_US'
