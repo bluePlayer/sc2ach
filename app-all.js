@@ -116,15 +116,15 @@ var sc2achApp = Ext.application({
 						type:'vbox',
 						align:'left'
 					},
-					columnWidth:0.205,
-					height:600,
+					columnWidth:0.225,
+					height:700,
 					items:[{
 						xtype: 'form',
 						id: 'filterForm',
 						title: 'Load Achievements',
 						bodyPadding: 10,
 						margin: '0 0 10 0',
-						width: 280,
+						//width: 280,
 						defaultType: 'combobox',
 						flex:1,
 						buttonAlign:'left',
@@ -270,7 +270,7 @@ var sc2achApp = Ext.application({
 								forceSelection: true,
 								editable: false,
 								allowBlank: false,
-								fieldLabel: 'Language/Locale:',
+								fieldLabel: 'Locale:',
 								name: 'locale',
 								store: localeStore,
 								queryMode: 'local',
@@ -295,7 +295,7 @@ var sc2achApp = Ext.application({
 						title:'Filter Achievements',
 						bodyPadding: 10,
 						margin:'0 0 10 0',
-						width: 280,
+						//width: 280,
 						buttonAlign:'left',
 						buttons:[{
 							text: 'Filter/Show All',
@@ -411,14 +411,14 @@ var sc2achApp = Ext.application({
 					},{
 						xtype:'panel',
 						flex: 1,
-						width: 280,
+						width: 300,
 						bodyPadding: 10,
 						layout:'column',
 						items:[{
 							xtype:'label',
 							text: 'Number of entries: 0',
 							id:'numOfEntries',
-							margin:'0 0 40 0'
+							margin:'0 0 10 0'
 						},{
 							xtype:'label',
 							html: 'All information and resources/images belong to Blizzard &copy; Entertainment',
@@ -453,8 +453,8 @@ var sc2achApp = Ext.application({
 							}
 						}
 					],
-					columnWidth:0.795,
-					height: 600
+					columnWidth:0.775,
+					height: 670
 				}
             ]
         });
