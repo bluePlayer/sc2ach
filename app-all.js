@@ -112,22 +112,27 @@ var sc2achApp = Ext.application({
             items: [
 				{
 					xtype:'panel',
-					layout:'vbox',
-					width:280,
+					layout:{
+						type:'vbox',
+						align:'left'
+					},
+					columnWidth:0.205,
 					height:600,
 					items:[{
 						xtype: 'form',
 						id: 'filterForm',
 						title: 'Load Achievements',
 						bodyPadding: 10,
-						margin: '0 0 20 0',
+						margin: '0 0 10 0',
 						width: 280,
 						defaultType: 'combobox',
 						flex:1,
+						buttonAlign:'left',
 						buttons:[{
 							text: 'Load',
 							formBind: true, 
 							disabled: true,
+							
 							handler: function() {
 								
 								var form = this.up('form').getForm();
@@ -289,7 +294,9 @@ var sc2achApp = Ext.application({
 						flex:2,
 						title:'Filter Achievements',
 						bodyPadding: 10,
+						margin:'0 0 10 0',
 						width: 280,
+						buttonAlign:'left',
 						buttons:[{
 							text: 'Filter/Show All',
 							disabled:true,
@@ -419,7 +426,7 @@ var sc2achApp = Ext.application({
 							id:'copyright'
 						},{
 							xtype:'label',
-							html: 'Developed by Vladimir Z aka VladDTerran &copy; 2014',
+							html: 'Developed by Vladimir Z aka VladDTerran &copy; March 2014',
 							id:'development'
 						}]
 					}]
@@ -446,7 +453,7 @@ var sc2achApp = Ext.application({
 							}
 						}
 					],
-					width: 1024,
+					columnWidth:0.795,
 					height: 600
 				}
             ]
