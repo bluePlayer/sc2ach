@@ -78,7 +78,9 @@ function filterAchievements() {
     if (keywordTitleTF.disabled == false && keywordTitleTF.getValue() != null && keywordTitleTF.getValue() != '') {
         achievementsStore.filter([{
             filterFn: function (item) {
-                if (item.get("title").indexOf(keywordTitleTF.getValue()) != -1) {
+				var value = item.get("title");
+                if ((value.indexOf(keywordTitleTF.getValue()) != -1) ||
+						(value.toLowerCase().indexOf(keywordTitleTF.getValue()) != -1)) {
                     return item;
                 }
             }
@@ -88,7 +90,9 @@ function filterAchievements() {
     if (keywordDescriptionTF.disabled == false && keywordDescriptionTF.getValue() != null && keywordDescriptionTF.getValue() != '') {
         achievementsStore.filter([{
             filterFn: function (item) {
-                if (item.get("description").indexOf(keywordDescriptionTF.getValue()) != -1) {
+				var value = item.get("description");
+                if ((value.indexOf(keywordDescriptionTF.getValue()) != -1) ||
+						(value.toLowerCase().indexOf(keywordDescriptionTF.getValue()) != -1)) {
                     return item;
                 }
             }
@@ -116,7 +120,7 @@ var sc2achApp = Ext.application({
 						type:'vbox',
 						align:'left'
 					},
-					columnWidth:0.225,
+					columnWidth:0.275,
 					height:700,
 					items:[{
 						xtype: 'form',
@@ -124,7 +128,6 @@ var sc2achApp = Ext.application({
 						title: 'Load Achievements',
 						bodyPadding: 10,
 						margin: '0 0 10 0',
-						//width: 280,
 						defaultType: 'combobox',
 						flex:1,
 						buttonAlign:'left',
@@ -132,7 +135,6 @@ var sc2achApp = Ext.application({
 							text: 'Load',
 							formBind: true, 
 							disabled: true,
-							
 							handler: function() {
 								
 								var form = this.up('form').getForm();
@@ -295,7 +297,6 @@ var sc2achApp = Ext.application({
 						title:'Filter Achievements',
 						bodyPadding: 10,
 						margin:'0 0 10 0',
-						//width: 280,
 						buttonAlign:'left',
 						buttons:[{
 							text: 'Filter/Show All',
@@ -357,7 +358,6 @@ var sc2achApp = Ext.application({
 							}
 						},{
 							xtype:'checkboxgroup',
-							fieldLabel: 'Filter by',
 							layout: {
 								type: 'vbox',
 								align: 'left'
@@ -440,7 +440,7 @@ var sc2achApp = Ext.application({
 					columns: [
 						{ text: 'Title', dataIndex: 'title', flex: 2, align:'center'},
 						{ text: 'Description', dataIndex: 'description', flex: 4, align:'center'},
-						{ text: 'Achievement ID', dataIndex: 'achievementId', flex: 2, align:'center'},
+						{ text: 'Achievement ID', dataIndex: 'achievementId', flex: 2, align:'center', hidden:true},
 						{ text: 'Category Title', dataIndex: 'categoryTitle', flex: 2, align:'center'},
 						{ text: 'Points', dataIndex: 'points', flex:1, align:'center'},
 						{ 
@@ -453,7 +453,7 @@ var sc2achApp = Ext.application({
 							}
 						}
 					],
-					columnWidth:0.775,
+					columnWidth:0.725,
 					height: 670
 				}
             ]
